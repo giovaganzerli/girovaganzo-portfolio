@@ -2,12 +2,12 @@ import React from "react";
 import TrackVisibility from "react-on-screen";
 
 // IMPORT ELEMENTS
-import Counter from "../elements/Counter";
-import SectionTitle from "../elements/SectionTitle";
-import ProgressBar from "../elements/ProgressBar";
+import Counter from "../../elements/Counter";
+import SectionTitle from "../../elements/SectionTitle";
+import ProgressBar from "../../elements/ProgressBar";
 
 // IMPORT IMAGES
-import imgProfile from "../../assets/images/img-profile.png";
+import imgProfile from "../../../assets/images/img-profile.png";
 
 // INIT STATIC DATA
 const aboutContent = {

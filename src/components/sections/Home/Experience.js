@@ -1,8 +1,8 @@
 import React from "react";
 
 // IMPORT ELEMENTS
-import SectionTitle from "../elements/SectionTitle";
-import Timeline from "../elements/Timeline";
+import SectionTitle from "../../elements/SectionTitle";
+import Timeline from "../../elements/Timeline";
 
 // INIT STATIC DATA
 const dataEducation = [

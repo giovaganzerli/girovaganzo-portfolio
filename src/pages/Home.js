@@ -6,15 +6,15 @@ import { Element } from "react-scroll";
 import Header from "../components/modules/Header";
 
 // IMPORT SECTIONS
-import SectionIntro from "../components/sections/Intro";
-import SectionAbout from "../components/sections/About";
-import SectionServices from "../components/sections/Services";
-import SectionExperience from "../components/sections/Experience";
-import SectionWorks from "../components/sections/Works";
-import SectionBlog from "../components/sections/Blog";
-import SectionContact from "../components/sections/Contact";
+import SectionIntro from "../components/sections/Home/Intro";
+import SectionAbout from "../components/sections/Home/About";
+import SectionServices from "../components/sections/Home/Services";
+import SectionExperience from "../components/sections/Home/Experience";
+import SectionWorks from "../components/sections/Home/Works";
+import SectionBlog from "../components/sections/Home/Blog";
+import SectionContact from "../components/sections/Home/Contact";
 
-function Homepage() {
+function Home() {
 
     return (
         <>
@@ -48,4 +48,4 @@ function Homepage() {
     );
 }
 
-export default Homepage;
+export default Home;

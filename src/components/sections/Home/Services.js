@@ -3,8 +3,8 @@ import { Link } from "react-scroll";
 import Slider from "react-slick";
 
 // IMPORT ELEMENTS
-import SectionTitle from "../elements/SectionTitle";
-import CardService from "../elements/CardService";
+import SectionTitle from "../../elements/SectionTitle";
+import CardService from "../../elements/CardService";
 
 // INIT STATIC DATA
 const dataServices = [

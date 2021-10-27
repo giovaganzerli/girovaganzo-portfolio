@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Homepage from "./pages/Homepage";
+import Home from "./pages/Home";
 
 // IMPORT CSS ANIMATION
 import 'animate.css';
@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact>
-            <Homepage />
+            <Home />
           </Route>
         </Switch>
       </BrowserRouter>

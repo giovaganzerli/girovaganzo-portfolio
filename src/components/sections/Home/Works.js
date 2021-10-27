@@ -3,8 +3,8 @@ import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 
 // IMPORT ELEMENTS
-import SectionTitle from "../elements/SectionTitle";
-import CardWork from "../elements/CardWork";
+import SectionTitle from "../../elements/SectionTitle";
+import CardWork from "../../elements/CardWork";
 
 // INIT STATIC DATA
 const dataCategories = [

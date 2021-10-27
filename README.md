@@ -1,6 +1,69 @@
-# Getting Started with Create React App
+# GIROVAGANZO PORTFOLIO
+#### 👉 https://portfolio.girovaganzo.bike
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simply, my portfolio. A small area to archive the past, observe the present and study the future. <br>
+
+---
+
+###Developed with:
+- [PhpStorm](https://www.jetbrains.com/phpstorm/)
+- [React JS](https://reactjs.org/)
+- [Bulma SCSS](https://bulma.io)
+
+---
+
+### Project Structure
+
+```
+--- public
+> The public folder in witch the project is deployed
+--- src
+------ assets/
+> The folder that stores static file & content
+--------- fonts/
+--------- icons/
+--------- images/
+------ components/
+> The folder that stores all react components
+---------- elements/
+> Elements are all the components that can easily reuse everywhere in the app
+---------- modules/
+> Modules are a group of components that are frequently repeated on multiple pages such as Header, Footer, Sidebar,...
+---------- sections/
+> Sections is like modules, but referred to a specitic page (example: onepage site)
+------ pages/
+> Simply the pages of the website/app
+------ scss/
+> The folder that stores all app, components and pages styles
+---------- config/
+> The style configuration file in witch you can create mixin, init fonts, set variables and start creating your own style guide
+------------- _bulma.scss
+> The Bulma Framework inizialization & customization file
+------------- _fonts.scss
+> The inizialization file for the custom fonts stored in the 'assets' folder
+------------- _mixin.scss
+> Custom scss mixin & function
+------------- _variables.scss
+> Custom scss variables  
+---------- elements/
+> Styles relative to recurring elements like buttons, forms, texts, custom react elements,... 
+---------- modules/
+> Styles relative to react moudles (see 'modules' folder)
+---------- pages/
+> Styles relative to react pages (see 'pages' folder)
+--- App.js
+--- App.scss
+--- index.js
+```
+
+---
+
+### Storyboard
+
+- [x] Static version
+- [x] Init Git
+- [ ] Original content
+- [ ] Integrate with WordPress CMS
 
 ## Available Scripts
 

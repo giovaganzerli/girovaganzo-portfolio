@@ -6,13 +6,13 @@ import { Link } from "react-scroll";
 import 'react-typed/dist/animatedCursor.css';
 
 // IMPORT ELEMENTS
-import Social from "../elements/Social";
+import Social from "../../elements/Social";
 
 // IMPORT ICONS
-import iconMouse from "../../assets/icons/icon-mouse.svg";
+import iconMouse from "../../../assets/icons/icon-mouse.svg";
 
 // IMPORT IMAGES
-import imgProfile from "../../assets/images/img-profile.png";
+import imgProfile from "../../../assets/images/img-profile.png";
 
 function SectionIntro(props) {
     const { x, y } = props.position;

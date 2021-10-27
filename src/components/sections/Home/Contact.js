@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 
 // IMPORT ELEMENTS
-import SectionTitle from "../elements/SectionTitle";
-import Social from "../elements/Social";
+import SectionTitle from "../../elements/SectionTitle";
+import Social from "../../elements/Social";
 
 function SectionContact() {
     const [formdata, setFormdata] = useState({

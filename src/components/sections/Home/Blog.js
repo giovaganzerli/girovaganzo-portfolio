@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 
 // IMPORT ELEMENTS
-import SectionTitle from "../elements/SectionTitle";
-import CardBlog from "../elements/CardBlog";
+import SectionTitle from "../../elements/SectionTitle";
+import CardBlog from "../../elements/CardBlog";
 
 // INIT STATIC DATA
 const dataBlog = [
