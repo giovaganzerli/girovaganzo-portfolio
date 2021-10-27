@@ -3,12 +3,10 @@
 
 Simply, my portfolio. A small area to archive the past, observe the present and study the future. <br>
 
-### Developed with:
+#### Developed with:
 - [PhpStorm](https://www.jetbrains.com/phpstorm/)
 - [React JS](https://reactjs.org/)
 - [Bulma SCSS](https://bulma.io)
-
----
 
 ## Project Structure
 
@@ -53,8 +51,6 @@ Simply, my portfolio. A small area to archive the past, observe the present and 
 --- App.scss
 --- index.js
 ```
-
----
 
 ## Project Roadmap
 
