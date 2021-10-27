@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="33px" viewBox="0 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-facebook</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/icon-facebook" fill-rule="nonzero">
+            <g id="icon-facebook">
+                <rect id="Rectangle" fill="#1877F2" x="0" y="0" width="33" height="33" rx="15"></rect>
+                <path d="M23.0794521,21.0728155 L23.8082192,16.223301 L19.2694064,16.223301 L19.2694064,13.0776699 C19.2694064,11.7538835 19.9022831,10.4563107 21.9351598,10.4563107 L24,10.4563107 L24,6.3276699 C24,6.3276699 22.1269406,6 20.3369863,6 C16.5972603,6 14.1552511,8.31990291 14.1552511,12.5271845 L14.1552511,16.223301 L10,16.223301 L10,21.0728155 L14.1552511,21.0728155 L14.1552511,33 L19.2694064,33 L19.2694064,21.0728155 L23.0794521,21.0728155 Z" id="Path" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

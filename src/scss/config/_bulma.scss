@@ -1,0 +1,47 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+
+// Disable widescreen & fullhd breakpoint
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Set primary variables
+$family-serif: "Avenir Next", "KG HAppy", sans-serif;
+$family-sans-serif: "KG HAppy", sans-serif;
+
+$orange: #ED5930;
+$green: #47894B;
+$grey-lighter: #EDEDF0;
+$purple-dark: #6C6CE5;
+$purple-darker: #454360;
+$purple-lighter: #F9F9FF;
+$yellow: #EDCC48;
+
+// Set derived variables
+$primary: $orange;
+$primary-invert: findColorInvert($primary);
+
+$family-primary: $family-serif;
+$family-secondary: $family-sans-serif;
+
+// Set custom colors
+$pink: #F97B8B;
+$pink-invert: findColorInvert($pink);
+$water_green: #4CCCB3;
+$water_green-invert: findColorInvert($water_green);
+
+// Add new color variables to the color map.
+@import "../node_modules/bulma/sass/utilities/derived-variables";
+$customColors: (
+        "pink":($pink, $pink-invert),
+        "water_green":($water_green, $water_green-invert),
+);
+$colors: map-merge($colors, $customColors);
+
+// Devices
+$mobile: 768px;
+$tablet: 940px;
+$desktop: 1024px + (2 * $gap);
+
+// 6. Import the rest of Bulma
+@import "../node_modules/bulma/bulma";

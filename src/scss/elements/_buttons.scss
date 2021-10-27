@@ -1,0 +1,103 @@
+.button {
+    @extend .is-family-secondary;
+    padding: 15px 25px 20px 15px;
+    border: 0px;
+    border-radius: 5px 20px 20px 20px;
+    box-shadow: 0px 0px 0px 0px $grey-lighter;
+    &:hover {
+        box-shadow: 10px 10px 0px 0px $grey-lighter;
+    }
+    &.is-outlined {
+        border: solid 3px;
+    }
+}
+
+.has-button-shadow {
+    box-shadow: 10px 10px 0px 0px $grey-lighter;
+    margin-right: 15px !important;
+}
+
+.has-button-shadow-colored {
+    position: relative;
+    &:after {
+        content: '';
+        display: inline-block;
+        @include absolute(top 10px left 10px, -1);
+        width: 100%;
+        height: 100%;
+        border-radius: 5px 20px 20px 20px;
+    }
+    &:before {
+        content: '';
+        display: inline-block;
+        @include absolute(top 10px left 10px, -1);
+        width: 100%;
+        height: 100%;
+        border-radius: 5px 20px 20px 20px;
+        border: solid 3px;
+    }
+    &.is-primary {
+        &:after {
+            background-color: rgba($primary, 0.5);
+        }
+        &:before {
+            border-color: $primary;
+        }
+    }
+    &.is-link {
+        &:after {
+            background-color: rgba($link, 0.5);
+        }
+        &:before {
+            border-color: $link;
+        }
+    }
+    &.is-info {
+        &:after {
+            background-color: rgba($info, 0.5);
+        }
+        &:before {
+            border-color: $info;
+        }
+    }
+    &.is-success {
+        &:after {
+            background-color: rgba($success, 0.5);
+        }
+        &:before {
+            border-color: $success;
+        }
+    }
+    &.is-warning {
+        &:after {
+            background-color: rgba($warning, 0.5);
+        }
+        &:before {
+            border-color: $warning;
+        }
+    }
+    &.is-danger {
+        &:after {
+            background-color: rgba($danger, 0.5);
+        }
+        &:before {
+            border-color: $danger;
+        }
+    }
+    &.is-dark {
+        &:after {
+            background-color: rgba($dark, 0.5);
+        }
+        &:before {
+            border-color: $dark;
+        }
+    }
+    &.is-text {
+        &:after {
+            background-color: rgba($text, 0.5);
+        }
+        &:before {
+            border-color: $text;
+        }
+    }
+}

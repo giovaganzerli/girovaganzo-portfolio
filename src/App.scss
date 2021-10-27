@@ -1,0 +1,55 @@
+/*
+ * MAIN STYLESHEET
+ */
+
+// Import CONFIG
+
+// Import Variables & Mixin
+@import 'scss/config/bulma';
+@import 'scss/config/variables';
+@import 'scss/config/mixin';
+@import 'scss/config/fonts';
+
+// Import ELEMENTS
+
+@import 'scss/elements/typography';
+@import 'scss/elements/colors';
+@import 'scss/elements/buttons';
+@import 'scss/elements/forms';
+@import 'scss/elements/elements';
+@import 'scss/elements/plugin';
+@import 'scss/elements/helpers';
+
+// Import MODULES
+
+@import 'scss/modules/header';
+
+// Import PAGES
+
+@import 'scss/pages/home';
+
+/********************/
+/* -- IMPORT END -- */
+/********************/
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    @extend .cursor-default;
+    @include prefix(transition, all 0.4s ease);
+}
+
+body {
+    margin: 0px;
+    overflow-x: hidden;
+    background-color: $purple-lighter;
+    @include prefix(transition, margin 0s);
+    .body-wrapper {
+        @include relative(top 0 left 0, 0);
+        width: 100vw;
+    }
+}
+
+a, button, .button, label {
+    @extend .cursor-pointer;
+}

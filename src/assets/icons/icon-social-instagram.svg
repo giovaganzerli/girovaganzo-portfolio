@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-instagram</title>
+    <defs>
+        <linearGradient x1="50%" y1="99.7086568%" x2="50%" y2="0.776685286%" id="linearGradient-1">
+            <stop stop-color="#E09B3D" offset="0%"></stop>
+            <stop stop-color="#C74C4D" offset="30%"></stop>
+            <stop stop-color="#C21975" offset="60%"></stop>
+            <stop stop-color="#7024C4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="146.098382%" x2="50%" y2="-45.1597534%" id="linearGradient-2">
+            <stop stop-color="#E09B3D" offset="0%"></stop>
+            <stop stop-color="#C74C4D" offset="30%"></stop>
+            <stop stop-color="#C21975" offset="60%"></stop>
+            <stop stop-color="#7024C4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="658.153387%" x2="50%" y2="-140.038068%" id="linearGradient-3">
+            <stop stop-color="#E09B3D" offset="0%"></stop>
+            <stop stop-color="#C74C4D" offset="30%"></stop>
+            <stop stop-color="#C21975" offset="60%"></stop>
+            <stop stop-color="#7024C4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/icon-instagram" fill-rule="nonzero">
+            <g id="icon-instagram">
+                <path d="M22.4670274,0 L9.53297256,0 C4.27646933,0 0,4.27646933 0,9.53297256 L0,22.4670274 C0,27.7235307 4.27646933,32 9.53297256,32 L22.4670274,32 C27.7235307,32 32,27.7235307 32,22.4670274 L32,9.53297256 C32,4.27646933 27.7234726,0 22.4670274,0 Z M28.7808012,22.4670274 C28.7808012,25.9539992 25.9539992,28.7808012 22.4670274,28.7808012 L9.53297256,28.7808012 C6.04600079,28.7808012 3.21919882,25.9539992 3.21919882,22.4670274 L3.21919882,9.53297256 C3.21919882,6.04594272 6.04600079,3.21919882 9.53297256,3.21919882 L22.4670274,3.21919882 C25.9539992,3.21919882 28.7808012,6.04594272 28.7808012,9.53297256 L28.7808012,22.4670274 L28.7808012,22.4670274 Z" id="XMLID_17_" fill="url(#linearGradient-1)"></path>
+                <path d="M16.5,8 C11.8130925,8 8,11.8131059 8,16.4999702 C8,21.1868345 11.8130925,25 16.5,25 C21.1869075,25 25,21.1868941 25,16.4999702 C25,11.8130462 21.1869075,8 16.5,8 Z M16.5,21.693853 C13.6315176,21.693853 11.3061951,19.3685222 11.3061951,16.5000298 C11.3061951,13.6315374 13.6315773,11.3062066 16.5,11.3062066 C19.3684824,11.3062066 21.6938049,13.6315374 21.6938049,16.5000298 C21.6938049,19.3684626 19.3684227,21.693853 16.5,21.693853 Z" id="XMLID_81_" fill="url(#linearGradient-2)"></path>
+                <circle id="XMLID_83_" fill="url(#linearGradient-3)" cx="24.5" cy="7.5" r="1.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

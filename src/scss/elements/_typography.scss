@@ -1,0 +1,22 @@
+h1 {
+    font-size: $size-1;
+    @extend .is-family-secondary;
+}
+
+h2 {
+    font-size: $size-2;
+    @extend .is-family-secondary;
+}
+
+h3 {
+    font-size: $size-3;
+    @extend .is-family-secondary;
+}
+
+h4 {
+    font-size: $size-4;
+}
+
+h5 {
+    font-size: $size-5;
+}
