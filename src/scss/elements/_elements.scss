@@ -55,11 +55,41 @@
 // CARD SERVICE
 
 .block-card_service {
+    position: relative;
     height: 100%;
     border-radius: 20px;
-    img {
+    overflow: hidden;
+    > img {
         display: inline-block !important;
     }
+    .card-skills-wrap {
+        position: absolute;
+        bottom: 0;
+        min-width: 100%;
+        box-shadow: 0px 0px 10px rgba($black, 0.05);
+        padding: 10px 0px;
+        overflow: hidden;
+        .card-skills {
+            @include prefix(transform, translateX(100%));
+            @include prefix(animation, text-horizontal_scroll 15s linear infinite);
+            .skill {
+                font-size: 14px;
+                img {
+                    display: inline-block;
+                    height: 18px;
+                }
+                i {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+
+@include keyframes(text-horizontal_scroll) {
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(-100%); }
 }
 
 // CARD WORK

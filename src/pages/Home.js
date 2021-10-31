@@ -4,6 +4,7 @@ import { Element } from "react-scroll";
 
 // IMPORT MODULES
 import Header from "../components/modules/Header";
+import Footer from "../components/modules/Footer";
 
 // IMPORT SECTIONS
 import SectionIntro from "../components/sections/Home/Intro";
@@ -44,6 +45,7 @@ function Home() {
                     <SectionContact />
                 </Element>
             </main>
+            <Footer />
         </>
     );
 }

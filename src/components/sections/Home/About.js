@@ -7,60 +7,72 @@ import SectionTitle from "../../elements/SectionTitle";
 import ProgressBar from "../../elements/ProgressBar";
 
 // IMPORT IMAGES
-import imgProfile from "../../../assets/images/img-profile.png";
+import imgProfile2 from "../../../assets/images/img-profile_2.png";
 
 // INIT STATIC DATA
 const aboutContent = {
-    name: "Girovaganzo",
-    avatarImage: imgProfile,
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec auctor dolor. Suspendisse orci nunc, venenatis at suscipit sit amet, imperdiet in ex. Suspendisse euismod eros et lacinia luctus. Nam in efficitur erat. Proin euismod cursus felis, eget porta libero laoreet vel. Cras et ultrices erat.",
+    name: "Giovanni Ganzerli",
+    avatarImage: imgProfile2,
+    content: "Hi 👋 and welcome aboard of my portfolio 🚀! My name is Giovanni Ganzerli, aka Girovaganzo, I'm "+ (new Date().getFullYear() - 1996) +" 👴 and I'm a digital enthusiast 💪 and adventure lover 😍. Well, the truth is that I like to do a lot of stuff and I'm always looking 👀 for new things to do, learn, discover and observe. I'm a sportsman 🏃‍, cyclist 🚴, explorer 🏔, world traveller 🌍, but simultaneously passionate about technology 🖥, web 🔗, electronic 📱 and social 📣.",
 };
 
 const dataProgress = [
     {
         id: 1,
+        title: "Design",
+        percantage: 80,
+        progressColor: "#6C6CE5",
+    },
+    {
+        id: 2,
         title: "Development",
-        percantage: 85,
+        percantage: 100,
         progressColor: "#FFD15C",
     },
     {
         id: 2,
-        title: "UI/UX Design",
-        percantage: 95,
+        title: "Project & Team Managment",
+        percantage: 90,
+        progressColor: "#A42FA5",
+    },
+    {
+        id: 3,
+        title: "Initiative & Creativity",
+        percantage: 100,
         progressColor: "#FF4C60",
     },
     {
         id: 3,
-        title: "Photography",
-        percantage: 70,
-        progressColor: "#6C6CE5",
+        title: "Social Skills",
+        percantage: 80,
+        progressColor: "#4cccb3",
     },
 ];
 
 const dataCounter = [
     {
         id: 1,
-        title: "Projects completed",
-        count: 198,
-        icon: "faUserAlt",
+        title: "Years old",
+        count: new Date().getFullYear() - 1996,
+        icon: "faCalendar",
     },
     {
         id: 2,
-        title: "Cup of coffee",
-        count: 5670,
-        icon: "faUserAlt",
+        title: "Km covered",
+        count: 23675,
+        icon: "faBicycle",
     },
     {
         id: 3,
-        title: "Satisfied clients",
-        count: 427,
-        icon: "faUserAlt",
+        title: "Visited cities",
+        count: 68,
+        icon: "faGlobeEurope",
     },
     {
         id: 4,
-        title: "Nominees winner",
-        count: 35,
-        icon: "faUserAlt",
+        title: "Insta & YT Followers",
+        count: 1310,
+        icon: "faUsers",
     },
 ];
 
