@@ -12,6 +12,7 @@
     "animate.css": "^4.1.1",
     "axios": "^0.23.0",
     "bulma": "^0.9.3",
+    "controllerim": "^3.0.4",
     "disqus-react": "^1.1.2",
     "fslightbox-react": "^1.6.2-2",
     "markdown-to-jsx": "^7.1.3",

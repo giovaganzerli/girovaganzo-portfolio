@@ -200,7 +200,11 @@
 // SECTION WORKS
 
 .section-works {
-
+    .works-filters {
+        .filter-item b {
+            pointer-events: none;
+        }
+    }
 }
 
 // SECTION BLOG
