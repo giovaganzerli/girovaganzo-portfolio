@@ -1,29 +1,29 @@
 import React  from "react";
 import { Link } from "react-router-dom";
+import Moment from 'react-moment';
+import 'moment-timezone';
 
-function CardBlog({ blogData, key }) {
-    const { id, category, title, date, image, link } = blogData;
-    const blogKey = key;
+function CardBlog({ postData }) {
     const images = require.context('../../assets/images/blog', true);
 
     return (
         <>
-            <div className="block-card_blog" key={blogKey}>
+            <div className="block-card_blog" key={postData.id}>
                 <div className="card-thumb">
                     <Link to="!#">
-                        <span className="card-category has-background-purple-darker has-text-light is-capitalized p-2">{category}</span>
+                        <span className="card-category has-background-purple-darker has-text-light is-capitalized p-2">{postData.category.title}</span>
                     </Link>
-                    <a href={link} target="_blank">
-                        <img src={images(`./${image}`)} alt="" />
+                    <a href={postData.link} target="_blank">
+                        <img src={postData.image.url} alt="" />
                     </a>
                 </div>
                 <div className="card-details p-4">
-                    <a href={link} target="_blank">
+                    <p className="card-detail-meta mb-0 mt-2 has-text-grey-light"><Moment format="DD MMMM YYYY" date={postData.date} /></p>
+                    <a href={postData.link} target="_blank">
                         <h4 className="card-detail-title has-text-purple-darker is-family-secondary">
-                            <b>{title}</b>
+                            <b>{postData.title}</b>
                         </h4>
                     </a>
-                    <p className="card-detail-meta mb-0 mt-2 has-text-grey-light">{date}</p>
                 </div>
             </div>
         </>

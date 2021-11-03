@@ -12,7 +12,7 @@ const dataEducation = [
         title: "Electronic technician diploma",
         years: "School Licenses",
         location: "@ ITI Enrico Fermi, Modena - 2015",
-        content: "Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.",
+        content: "Graduated in July 2015 in Electronics and Electrical Engineering (Automation articulation) with a grade of 70/100.",
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ const dataEducation = [
         title: "AGESCI",
         years: "Associations & Local commitment",
         location: "@ Gruppo scout Formigine 1",
-        content: "Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.",
+        content: "Scouts have been my second family since I was a child and thanks to this opportunity I have never lacked the curiosity and the desire for adventure and challenges that still guide me. Today, for almost 4 years, I am a scout leader in the group of my town and this allows me to have an active role both in the group itself and over the territory thanks also to all the initiatives that we promote and support.",
     },
     {
         id: 4,
@@ -36,10 +36,9 @@ const dataEducation = [
         title: "Ciclofficina Popolare Rimessa in Movimento",
         years: "Associations & Local commitment",
         location: "@ Modena",
-        content: "Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.",
+        content: "An association that I joined a couple of years ago to share my passion for cycling, travel, mechanics and in general the art of repairing and inventing. An association that often collaborates with the municipality and other entities in the area to promote events and initiatives related to the beautiful world of bicycle as a means of transport and a way of life.",
     },
 ];
-
 const dataExperience = [
     {
         id: 1,
@@ -66,7 +65,7 @@ const dataExperience = [
         content: "After a year at Digiral Gourmet, the company was absorbed by Tel&Co, a company that specializes primarily in cybersecurity, server infrastructure and web & app development. Here I continued my experience by full stack developer and project manager integrating them in a teamwork context that allowed me to delve the use of tools and working methods such as Git, Agile, time management tools,...",
     },
     {
-        id: 3,
+        id: 4,
         icon: 'faBriefcase',
         title: "Quality Control Engineer & Packaging and Assembly Officer",
         years: "Mar 2021 - Today",
@@ -75,35 +74,42 @@ const dataExperience = [
     }
 ];
 
-function SectionExperience() {
+class SectionExperience extends React.Component {
 
-    return (
-        <>
-            <section id="experience" className="section section-experience">
-                <div className="section-wrapper">
-                    <SectionTitle title="Experience" />
-                    <div className="columns columns-timelines">
-                        <div className="column column-timeline is-6 mb-6">
-                            <div className="timeline-wrapper">
-                                {dataExperience.slice(0).reverse().map((experience) => (
-                                    <Timeline key={experience.id} data={experience} type="experience" />
-                                ))}
-                                <span className="line"></span>
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
+    render() {
+        return (
+            <>
+                <section id="experience" className="section section-experience">
+                    <div className="section-wrapper">
+                        <SectionTitle title="Experience"/>
+                        <div className="columns columns-timelines">
+                            <div className="column column-timeline is-6 mb-6">
+                                <div className="timeline-wrapper">
+                                    {dataExperience.slice(0).reverse().map((experience) => (
+                                        <Timeline key={experience.id} data={experience} type="experience"/>
+                                    ))}
+                                    <span className="line"></span>
+                                </div>
                             </div>
-                        </div>
-                        <div className="column column-timeline is-6 mb-6">
-                            <div className="timeline-wrapper">
-                                {dataEducation.map((education) => (
-                                    <Timeline key={education.id} data={education} type="education" />
-                                ))}
-                                <span className="line"></span>
+                            <div className="column column-timeline is-6 mb-6">
+                                <div className="timeline-wrapper">
+                                    {dataEducation.map((education) => (
+                                        <Timeline key={education.id} data={education} type="education"/>
+                                    ))}
+                                    <span className="line"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </>
-    );
+                </section>
+            </>
+        )
+    }
 }
 
 export default SectionExperience;

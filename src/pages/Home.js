@@ -15,39 +15,46 @@ import SectionWorks from "../components/sections/Home/Works";
 import SectionBlog from "../components/sections/Home/Blog";
 import SectionContact from "../components/sections/Home/Contact";
 
-function Home() {
+class Home extends React.Component {
 
-    return (
-        <>
-            <Header />
-            <main className="body-wrapper">
-                <Element name="section-intro">
-                    <ReactCursorPosition>
-                        <SectionIntro light />
-                    </ReactCursorPosition>
-                </Element>
-                <Element name="section-about">
-                    <SectionAbout />
-                </Element>
-                <Element name="section-services">
-                    <SectionServices />
-                </Element>
-                <Element name="section-experience">
-                    <SectionExperience />
-                </Element>
-                <Element name="section-works">
-                    <SectionWorks />
-                </Element>
-                <Element name="section-blog">
-                    <SectionBlog />
-                </Element>
-                <Element name="section-contact">
-                    <SectionContact />
-                </Element>
-            </main>
-            <Footer />
-        </>
-    );
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
+    render() {
+        return (
+            <>
+                <Header/>
+                <main className="body-wrapper">
+                    <Element name="section-intro">
+                        <ReactCursorPosition>
+                            <SectionIntro light/>
+                        </ReactCursorPosition>
+                    </Element>
+                    <Element name="section-about">
+                        <SectionAbout/>
+                    </Element>
+                    <Element name="section-services">
+                        <SectionServices/>
+                    </Element>
+                    <Element name="section-experience">
+                        <SectionExperience/>
+                    </Element>
+                    <Element name="section-works">
+                        <SectionWorks/>
+                    </Element>
+                    <Element name="section-blog">
+                        <SectionBlog/>
+                    </Element>
+                    <Element name="section-contact">
+                        <SectionContact/>
+                    </Element>
+                </main>
+                <Footer/>
+            </>
+        )
+    }
 }
 
 export default Home;

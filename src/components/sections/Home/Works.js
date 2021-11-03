@@ -29,7 +29,6 @@ const dataCategories = [
         title: "Branding",
     },
 ];
-
 const dataWorks = [
     {
         id: 1,
@@ -124,101 +123,135 @@ const dataWorks = [
     },
 ];
 
-function SectionWorks() {
-    const [getAllItems] = useState(dataWorks);
-    const [dataVisibleCount, setDataVisibleCount] = useState(6);
-    const [dataIncrement] = useState(3);
-    const [activeFilter, setActiveFilter] = useState("");
-    const [visibleItems, setVisibleItems] = useState([]);
-    const [noMorePost, setNoMorePost] = useState(false);
+class SectionWorks extends React.Component {
 
-    useEffect(() => {
-        setActiveFilter(dataCategories[0].id);
-        setVisibleItems(getAllItems.filter((item) => item.id <= 6));
-    }, [getAllItems]);
+    constructor(props) {
+        super(props);
+        this.state = {
+            getAllItems: dataWorks,
+            dataVisibleCount: 6,
+            dataIncrement: 3,
+            activeFilter: "",
+            visibleItems: [],
+            noMorePost: false
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleLoadmore = this.handleLoadmore.bind(this);
+    }
 
-    const handleChange = (e) => {
+    componentDidMount() {
+        this.setActiveFilter(dataCategories[0].id);
+        this.setVisibleItems(this.state.getAllItems.filter((item) => item.id <= 6));
+    }
+
+    setDataVisibleCount(value) {
+        this.state.dataVisibleCount = value;
+        this.setState(this.state);
+    }
+
+    setActiveFilter(value) {
+        this.state.activeFilter = value;
+        this.setState(this.state);
+    }
+
+    setVisibleItems(value) {
+        this.state.visibleItems = value;
+        this.setState(this.state);
+    }
+
+    setNoMorePost(value) {
+        this.state.noMorePost = value;
+        this.setState(this.state);
+    }
+
+    handleChange(e) {
         e.preventDefault();
-        setActiveFilter(parseInt(e.target.parentElement.attributes.category.nodeValue));
+        this.setActiveFilter(parseInt(e.target.attributes.category.nodeValue));
         let tempData;
-        if (parseInt(e.target.parentElement.attributes.category.nodeValue) === dataCategories[0].id) {
-            tempData = getAllItems.filter((data) => data.id <= dataVisibleCount);
+        if (parseInt(e.target.attributes.category.nodeValue) === dataCategories[0].id) {
+            tempData = this.state.getAllItems.filter((data) => data.id <= this.state.dataVisibleCount);
         } else {
-            tempData = getAllItems.filter(
+            tempData = this.state.getAllItems.filter(
                 (data) =>
-                    data.category === parseInt(e.target.parentElement.attributes.category.nodeValue) && data.id <= dataVisibleCount
+                    data.category === parseInt(e.target.attributes.category.nodeValue) && data.id <= this.state.dataVisibleCount
             );
         }
-        setVisibleItems(tempData);
+        this.setVisibleItems(tempData);
     };
 
-    const handleLoadmore = (e) => {
+    handleLoadmore(e) {
         e.preventDefault();
-        let tempCount = dataVisibleCount + dataIncrement;
-        if (dataVisibleCount > getAllItems.length) {
-            setNoMorePost(true);
+        let tempCount = this.state.dataVisibleCount + this.state.dataIncrement;
+        if (this.state.dataVisibleCount > this.state.getAllItems.length) {
+            this.setNoMorePost(true);
         } else {
-            setDataVisibleCount(tempCount);
-            if (activeFilter === dataCategories[0].id) {
-                setVisibleItems(getAllItems.filter((data) => data.id <= tempCount));
+            this.setDataVisibleCount(tempCount);
+            if (this.state.activeFilter === dataCategories[0].id) {
+                this.setVisibleItems(this.state.getAllItems.filter((data) => data.id <= tempCount));
             } else {
-                setVisibleItems(
-                    getAllItems.filter(
-                        (data) => data.category === activeFilter && data.id <= tempCount
+                this.setVisibleItems(
+                    this.state.getAllItems.filter(
+                        (data) => data.category === this.state.activeFilter && data.id <= tempCount
                     )
                 );
+            }
+            if (this.state.dataVisibleCount > this.state.getAllItems.length) {
+                this.setNoMorePost(true);
             }
         }
     };
 
-    return (
-        <>
-            <section id="works" className="section section-works">
-                <div className="section-wrapper">
-                    <SectionTitle title="Works" />
+    render() {
+        return (
+            <>
+                <section id="works" className="section section-works">
+                    <div className="section-wrapper">
+                        <SectionTitle title="Works"/>
 
-                    <ScrollAnimation
-                        className="works-filters is-flex is-flex-wrap-wrap ml-4 mb-6"
-                        animateIn="fadeInUp"
-                        animateOut="fadeInOut"
-                        animateOnce={true}
-                    >
-                        {dataCategories.map((category) => (
-                            <Link className={`filter-item is-capitalized is-italic mr-3 ${category.id === activeFilter ? "current is-underlined has-text-primary" : "has-text-purple-darker"}`}
-                                  key={category.id}
-                                  category={category.id}
-                                  onClick={handleChange}
-                            >
-                                <b>{category.title}</b>
-                            </Link>
-                        ))}
-                    </ScrollAnimation>
-
-                    <div className="works-cards columns is-mobile is-flex-wrap-wrap">
-                        {visibleItems.map((item) => (
-                            <div className="column is-4-desktop is-4-tablet is-6-mobile" key={item.id}>
-                                <CardWork works={item} />
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="works-load_more is-center mt-4">
-                        <button
-                            className="button is-primary is-outlined"
-                            onClick={handleLoadmore}
-                            disabled={noMorePost ? "disabled" : null}
+                        <ScrollAnimation
+                            className="works-filters is-flex is-flex-wrap-wrap ml-4 mb-6"
+                            animateIn="fadeInUp"
+                            animateOut="fadeInOut"
+                            animateOnce={true}
                         >
-                            {noMorePost ? (
-                                "No more items"
-                            ) : (
-                                <span>Load more <span role="img" aria-label="" className="ml-3" />⏳</span>
-                            )}
-                        </button>
+                            {dataCategories.map((category) => (
+                                <Link to="!#"
+                                      className={`filter-item is-capitalized is-italic mr-3 ${category.id === this.state.activeFilter ? "current is-underlined has-text-primary" : "has-text-purple-darker"}`}
+                                      key={category.id}
+                                      category={category.id}
+                                      onClick={this.handleChange}
+                                >
+                                    <b>{category.title}</b>
+                                </Link>
+                            ))}
+                        </ScrollAnimation>
+
+                        <div className="works-cards columns is-mobile is-flex-wrap-wrap">
+                            {this.state.visibleItems.map((item) => (
+                                <div className="column is-4-desktop is-4-tablet is-6-mobile" key={item.id}>
+                                    <CardWork works={item}/>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="works-load_more is-center mt-4">
+                            <button
+                                className="button is-primary is-outlined"
+                                onClick={this.handleLoadmore}
+                                disabled={this.state.noMorePost ? "disabled" : null}
+                            >
+                                {this.state.noMorePost ? (
+                                    "No more items"
+                                ) : (
+                                    <span>Load more <span role="img" aria-label="" className="ml-3"/>⏳</span>
+                                )}
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </section>
-        </>
-    );
+                </section>
+            </>
+        )
+    }
 }
 
 export default SectionWorks;
