@@ -46,8 +46,8 @@ function CardService({ service, key }) {
                     filter: 'brightness(96%)'
                 }}>
                     <div className="card-skills is-flex">
-                        {skills.map((skill, i) => (
-                            <span className={`skill mr-3 ml-3 is-flex is-flex-direction-column ${contentColor === "light" ? "has-text-light" : 'has-text-black'}`} key={i}>
+                        {skills.map((skill) => (
+                            <span className={`skill mr-3 ml-3 is-flex is-flex-direction-column ${contentColor === "light" ? "has-text-light" : 'has-text-black'}`}>
                                 <img src={icons(`./${skill.icon}`)} alt={skill.title}/>
                                 <i>{skill.title}</i>
                             </span>

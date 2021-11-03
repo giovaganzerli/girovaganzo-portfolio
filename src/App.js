@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import HomeView from "./pages/home/home.view";
+import Home from "./pages/Home";
 
 // IMPORT CSS ANIMATION
 import 'animate.css';
@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact>
-            <HomeView />
+            <Home />
           </Route>
         </Switch>
       </BrowserRouter>
