@@ -5,7 +5,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 import SectionTitle from "../../elements/SectionTitle";
 import Social from "../../elements/Social";
 
-class SectionContact extends React.Component {
+class SectionHomeContact extends React.Component {
 
     constructor(props) {
         super(props);
@@ -177,4 +177,4 @@ class SectionContact extends React.Component {
     }
 }
 
-export default SectionContact;
+export default SectionHomeContact;

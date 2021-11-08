@@ -7,13 +7,13 @@ import Header from "../components/modules/Header";
 import Footer from "../components/modules/Footer";
 
 // IMPORT SECTIONS
-import SectionIntro from "../components/sections/Home/Intro";
-import SectionAbout from "../components/sections/Home/About";
-import SectionServices from "../components/sections/Home/Services";
-import SectionExperience from "../components/sections/Home/Experience";
-import SectionWorks from "../components/sections/Home/Works";
-import SectionBlog from "../components/sections/Home/Blog";
-import SectionContact from "../components/sections/Home/Contact";
+import SectionHomeIntro from "../components/sections/Home/Intro";
+import SectionHomeAbout from "../components/sections/Home/About";
+import SectionHomeServices from "../components/sections/Home/Services";
+import SectionHomeExperience from "../components/sections/Home/Experience";
+import SectionHomeWorks from "../components/sections/Home/Works";
+import SectionHomeBlog from "../components/sections/Home/Blog";
+import SectionHomeContact from "../components/sections/Home/Contact";
 
 class Home extends React.Component {
 
@@ -29,26 +29,26 @@ class Home extends React.Component {
                 <main className="body-wrapper">
                     <Element name="section-intro">
                         <ReactCursorPosition>
-                            <SectionIntro light/>
+                            <SectionHomeIntro light/>
                         </ReactCursorPosition>
                     </Element>
                     <Element name="section-about">
-                        <SectionAbout/>
+                        <SectionHomeAbout/>
                     </Element>
                     <Element name="section-services">
-                        <SectionServices/>
+                        <SectionHomeServices/>
                     </Element>
                     <Element name="section-experience">
-                        <SectionExperience/>
+                        <SectionHomeExperience/>
                     </Element>
                     <Element name="section-works">
-                        <SectionWorks/>
+                        <SectionHomeWorks/>
                     </Element>
                     <Element name="section-blog">
-                        <SectionBlog/>
+                        <SectionHomeBlog/>
                     </Element>
                     <Element name="section-contact">
-                        <SectionContact/>
+                        <SectionHomeContact/>
                     </Element>
                 </main>
                 <Footer/>

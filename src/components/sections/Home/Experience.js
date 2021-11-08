@@ -74,7 +74,7 @@ const dataExperience = [
     }
 ];
 
-class SectionExperience extends React.Component {
+class SectionHomeExperience extends React.Component {
 
     constructor(props) {
         super(props);
@@ -112,4 +112,4 @@ class SectionExperience extends React.Component {
     }
 }
 
-export default SectionExperience;
+export default SectionHomeExperience;

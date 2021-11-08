@@ -4,7 +4,6 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 
 function CardBlog({ postData }) {
-    const images = require.context('../../assets/images/blog', true);
 
     return (
         <>

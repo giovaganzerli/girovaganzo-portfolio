@@ -3,14 +3,14 @@ import Slider from "react-slick";
 
 // IMPORT SERVICES
 import { getPosts } from "../../../services/wp/posts";
-import { getCategory } from "../../../services/wp/taxonomies";
+import { getPostsCategory } from "../../../services/wp/taxonomies";
 import { getAttachment } from "../../../services/wp/attachments";
 
 // IMPORT ELEMENTS
 import SectionTitle from "../../elements/SectionTitle";
 import CardBlog from "../../elements/CardBlog";
 
-class SectionBlog extends React.Component {
+class SectionHomeBlog extends React.Component {
 
     constructor(props) {
         super(props);
@@ -83,9 +83,10 @@ class SectionBlog extends React.Component {
             let _post = {
                 id: post.id,
                 title: post.title.rendered,
+                slug: post.slug,
                 excerpt: post.excerpt.rendered,
                 image: {
-                    id: parseInt(post['_links']['wp:attachment'][0].href.split('parent=')[1]),
+                    id: parseInt(post['_links']['wp:featuredmedia'][0].href.split('/wp-json/wp/v2/media/')[1]),
                     url: ''
                 },
                 date: post.date,
@@ -97,11 +98,11 @@ class SectionBlog extends React.Component {
             };
             getAttachment(_post.image.id)
                 .then(item => {
-                    _post.image.url = item.data[0].guid.rendered;
+                    _post.image.url = item.data.guid.rendered;
                     this.setState(this.state);
                 });
 
-            getCategory(_post.category.id)
+            getPostsCategory(_post.category.id)
                 .then(item => {
                     _post.category.title = item.data.name;
                     this.setState(this.state);
@@ -123,9 +124,9 @@ class SectionBlog extends React.Component {
                     <div className="section-wrapper">
                         <SectionTitle title="Tech Pills"/>
                         <Slider className="blog-cards" {...this.cardsSliderSettings}>
-                            {this.state.posts.map(function(post) {
+                            {this.state.posts.map(function(post, index) {
                                 return (
-                                    <CardBlog postData={post} />
+                                    <CardBlog postData={post} key={post.id}/>
                                 )
                             })}
                         </Slider>
@@ -136,4 +137,4 @@ class SectionBlog extends React.Component {
     }
 }
 
-export default SectionBlog;
+export default SectionHomeBlog;

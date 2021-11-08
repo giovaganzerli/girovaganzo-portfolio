@@ -2,165 +2,115 @@ import React, { useState, useEffect } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 
+// IMPORT SERVICES
+import { getWorks } from "../../../services/wp/posts";
+import { getWorksCategories } from "../../../services/wp/taxonomies";
+import { getAttachment } from "../../../services/wp/attachments";
+
 // IMPORT ELEMENTS
 import SectionTitle from "../../elements/SectionTitle";
 import CardWork from "../../elements/CardWork";
 
-// INIT STATIC DATA
-const dataCategories = [
-    {
-        id: 1,
-        title: "Everything",
-    },
-    {
-        id: 2,
-        title: "Creative",
-    },
-    {
-        id: 3,
-        title: "Art",
-    },
-    {
-        id: 4,
-        title: "Design",
-    },
-    {
-        id: 5,
-        title: "Branding",
-    },
-];
-const dataWorks = [
-    {
-        id: 1,
-        title: "Project Managment Illustration",
-        category: 3,
-        image: "1.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 2,
-        title: "Guest App Walkthrough Screens",
-        category: 2,
-        image: "2.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 3,
-        title: "Delivery App Wireframe",
-        category: 5,
-        image: "3.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 4,
-        title: "Onboarding Motivation",
-        category: 2,
-        image: "4.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 5,
-        title: "iMac Mockup Design",
-        category: 3,
-        image: "5.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 6,
-        title: "Game Store App Concept",
-        category: 4,
-        image: "6.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 7,
-        title: "Project Managment Illustration",
-        category: 3,
-        image: "3.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 8,
-        title: "Guest App Walkthrough Screens",
-        category: 4,
-        image: "1.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 9,
-        title: "Delivery App Wireframe",
-        category: 5,
-        image: "4.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 10,
-        title: "Game Store App Concept",
-        category: 4,
-        image: "6.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 11,
-        title: "Project Managment Illustration",
-        category: 3,
-        image: "3.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 12,
-        title: "Guest App Walkthrough Screens",
-        category: 4,
-        image: "1.svg",
-        link: "/single-work-example",
-    },
-    {
-        id: 13,
-        title: "Delivery App Wireframe",
-        category: 5,
-        image: "4.svg",
-        link: "/single-work-example",
-    },
-];
-
-class SectionWorks extends React.Component {
+class SectionHomeWorks extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            getAllItems: dataWorks,
-            dataVisibleCount: 6,
-            dataIncrement: 3,
-            activeFilter: "",
-            visibleItems: [],
-            noMorePost: false
+            works: [],
+            categories: [],
+            settings: {
+                dataVisibleCount: 6,
+                dataIncrement: 3,
+                activeFilter: 0,
+                visibleItems: [],
+                noMorePost: false
+            }
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleLoadmore = this.handleLoadmore.bind(this);
     }
 
     componentDidMount() {
-        this.setActiveFilter(dataCategories[0].id);
-        this.setVisibleItems(this.state.getAllItems.filter((item) => item.id <= 6));
+
+        getWorksCategories('')
+            .then(items => {
+                this.setCategories(items.data);
+            });
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+        if(prevState.categories.length && !prevState.works.length) {
+            getWorks('')
+                .then(items => {
+                    this.setWorks(items.data);
+
+                    this.setActiveFilter(0);
+                    this.setVisibleItems(this.state.works.filter((item, index) => index <= this.state.settings.dataVisibleCount));
+                });
+        }
+    }
+
+    setCategories(value) {
+        value.map((term) => {
+            let _term = {
+                id: term.id,
+                count: term.count,
+                title: term.name,
+                slug: term.slug,
+                description: term.description,
+                link: term.link
+            };
+
+            this.state.categories.push(_term);
+        });
+        this.setState(this.state);
+    }
+
+    setWorks(value) {
+        value.map((post) => {
+            let _post = {
+                id: post.id,
+                title: post.title.rendered,
+                slug: post.slug,
+                category: {},
+                image: {
+                    id: parseInt(post['_links']['wp:featuredmedia'][0].href.split('/wp-json/wp/v2/media/')[1]),
+                    url: ''
+                },
+                link: post.link.split('girovaganzo.bike')[1]
+            };
+            getAttachment(_post.image.id)
+                .then(item => {
+                    _post.image.url = item.data.guid.rendered;
+                    this.setState(this.state);
+                });
+            _post.category = this.state.categories.filter(item => {
+                return item.id === post.category_works[0]
+            })
+
+            this.state.works.push(_post);
+        });
+        this.setState(this.state);
     }
 
     setDataVisibleCount(value) {
-        this.state.dataVisibleCount = value;
+        this.state.settings.dataVisibleCount = value;
         this.setState(this.state);
     }
 
     setActiveFilter(value) {
-        this.state.activeFilter = value;
+        this.state.settings.activeFilter = value;
         this.setState(this.state);
     }
 
     setVisibleItems(value) {
-        this.state.visibleItems = value;
+        this.state.settings.visibleItems = value;
         this.setState(this.state);
     }
 
     setNoMorePost(value) {
-        this.state.noMorePost = value;
+        this.state.settings.noMorePost = value;
         this.setState(this.state);
     }
 
@@ -168,12 +118,12 @@ class SectionWorks extends React.Component {
         e.preventDefault();
         this.setActiveFilter(parseInt(e.target.attributes.category.nodeValue));
         let tempData;
-        if (parseInt(e.target.attributes.category.nodeValue) === dataCategories[0].id) {
-            tempData = this.state.getAllItems.filter((data) => data.id <= this.state.dataVisibleCount);
+        if (parseInt(e.target.attributes.category.nodeValue) === 0) {
+            tempData = this.state.works.filter((data, index) => index <= this.state.settings.dataVisibleCount);
         } else {
-            tempData = this.state.getAllItems.filter(
-                (data) =>
-                    data.category === parseInt(e.target.attributes.category.nodeValue) && data.id <= this.state.dataVisibleCount
+            tempData = this.state.works.filter(
+                (data, index) =>
+                    data.category[0].id === parseInt(e.target.attributes.category.nodeValue) && index <= this.state.settings.dataVisibleCount
             );
         }
         this.setVisibleItems(tempData);
@@ -181,21 +131,21 @@ class SectionWorks extends React.Component {
 
     handleLoadmore(e) {
         e.preventDefault();
-        let tempCount = this.state.dataVisibleCount + this.state.dataIncrement;
-        if (this.state.dataVisibleCount > this.state.getAllItems.length) {
+        let tempCount = this.state.settings.dataVisibleCount + this.state.settings.dataIncrement;
+        if (this.state.settings.dataVisibleCount > this.state.works.length) {
             this.setNoMorePost(true);
         } else {
             this.setDataVisibleCount(tempCount);
-            if (this.state.activeFilter === dataCategories[0].id) {
-                this.setVisibleItems(this.state.getAllItems.filter((data) => data.id <= tempCount));
+            if (this.state.settings.activeFilter === 0) {
+                this.setVisibleItems(this.state.works.filter((data, index) => index <= tempCount));
             } else {
                 this.setVisibleItems(
-                    this.state.getAllItems.filter(
-                        (data) => data.category === this.state.activeFilter && data.id <= tempCount
+                    this.state.works.filter(
+                        (data, index) => data.category.id === this.state.settings.activeFilter && index <= tempCount
                     )
                 );
             }
-            if (this.state.dataVisibleCount > this.state.getAllItems.length) {
+            if (this.state.settings.dataVisibleCount > this.state.works.length) {
                 this.setNoMorePost(true);
             }
         }
@@ -214,9 +164,17 @@ class SectionWorks extends React.Component {
                             animateOut="fadeInOut"
                             animateOnce={true}
                         >
-                            {dataCategories.map((category) => (
+                            <Link to="!#"
+                                  className={`filter-item is-capitalized is-italic mr-3 ${0 === this.state.settings.activeFilter ? "current is-underlined has-text-primary" : "has-text-purple-darker"}`}
+                                  key={0}
+                                  category={0}
+                                  onClick={this.handleChange}
+                            >
+                                <b>All</b>
+                            </Link>
+                            {this.state.categories.map((category) => (
                                 <Link to="!#"
-                                      className={`filter-item is-capitalized is-italic mr-3 ${category.id === this.state.activeFilter ? "current is-underlined has-text-primary" : "has-text-purple-darker"}`}
+                                      className={`filter-item is-capitalized is-italic mr-3 ${category.id === this.state.settings.activeFilter ? "current is-underlined has-text-primary" : "has-text-purple-darker"}`}
                                       key={category.id}
                                       category={category.id}
                                       onClick={this.handleChange}
@@ -227,9 +185,9 @@ class SectionWorks extends React.Component {
                         </ScrollAnimation>
 
                         <div className="works-cards columns is-mobile is-flex-wrap-wrap">
-                            {this.state.visibleItems.map((item) => (
-                                <div className="column is-4-desktop is-4-tablet is-6-mobile" key={item.id}>
-                                    <CardWork works={item}/>
+                            {this.state.settings.visibleItems.map((work) => (
+                                <div className="column is-4-desktop is-4-tablet is-6-mobile" key={work.id}>
+                                    <CardWork workData={work}/>
                                 </div>
                             ))}
                         </div>
@@ -238,9 +196,9 @@ class SectionWorks extends React.Component {
                             <button
                                 className="button is-primary is-outlined"
                                 onClick={this.handleLoadmore}
-                                disabled={this.state.noMorePost ? "disabled" : null}
+                                disabled={this.state.settings.noMorePost ? "disabled" : null}
                             >
-                                {this.state.noMorePost ? (
+                                {this.state.settings.noMorePost ? (
                                     "No more items"
                                 ) : (
                                     <span>Load more <span role="img" aria-label="" className="ml-3"/>⏳</span>
@@ -254,4 +212,4 @@ class SectionWorks extends React.Component {
     }
 }
 
-export default SectionWorks;
+export default SectionHomeWorks;

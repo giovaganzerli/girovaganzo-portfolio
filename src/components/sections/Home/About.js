@@ -74,7 +74,7 @@ const dataCounter = [
     },
 ];
 
-class SectionAbout extends React.Component {
+class SectionHomeAbout extends React.Component {
 
     constructor(props) {
         super(props);
@@ -139,4 +139,4 @@ class SectionAbout extends React.Component {
     }
 }
 
-export default SectionAbout;
+export default SectionHomeAbout;

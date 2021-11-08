@@ -23,6 +23,7 @@
 // Import MODULES
 
 @import 'scss/modules/header';
+@import 'scss/modules/footer';
 
 // Import PAGES
 
@@ -44,9 +45,10 @@ body {
     overflow-x: hidden;
     background-color: $purple-lighter;
     @include prefix(transition, margin 0s);
-    .body-wrapper {
+    main.body-wrapper {
         @include relative(top 0 left 0, 0);
         width: 100vw;
+        min-height: calc(100vh - 40px);
     }
 }
 

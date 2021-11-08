@@ -14,7 +14,7 @@ import iconMouse from "../../../assets/icons/icon-mouse.svg";
 // IMPORT IMAGES
 import imgProfile from "../../../assets/images/img-profile.png";
 
-class SectionIntro extends React.Component {
+class SectionHomeIntro extends React.Component {
 
     constructor(props) {
         super(props);
@@ -275,4 +275,4 @@ class SectionIntro extends React.Component {
     }
 }
 
-export default SectionIntro;
+export default SectionHomeIntro;

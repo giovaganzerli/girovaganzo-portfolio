@@ -154,7 +154,7 @@ const dataServices = [
     }
 ];
 
-class SectionServices extends React.Component {
+class SectionHomeServices extends React.Component {
 
     constructor(props) {
         super(props);
@@ -249,4 +249,4 @@ class SectionServices extends React.Component {
     }
 }
 
-export default SectionServices;
+export default SectionHomeServices;
